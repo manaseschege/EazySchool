@@ -1,16 +1,43 @@
 package com.manasses.school.service;
 
 import com.manasses.school.model.Contact;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
+/*
+@Slf4j, is a Lombok-provided annotation that will automatically generate an SLF4J
+Logger static property in the class at compilation time.
+* */
+@Slf4j
 @Service
+@ApplicationScope
 public class ContactService {
-    private  static Logger log= LoggerFactory.getLogger(ContactService.class);
-    public  boolean saveMessageDetails(Contact contact){
-        boolean isSaved=true;
+private int counter=0;
+public ContactService(){
+    System.out.println("Contact Service Bean initialized");
+}
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    /**
+     * Save Contact Details into DB
+     * @param contact
+     * @return boolean
+     */
+    public boolean saveMessageDetails(Contact contact){
+        boolean isSaved = true;
+        //TODO - Need to persist the data into the DB table
         log.info(contact.toString());
         return isSaved;
     }
+
 }
