@@ -1,7 +1,7 @@
 package com.manasses.school.model;
 
 
-import lombok.Data;
+    import lombok.Data;
 
 import java.time.LocalDateTime;
 
