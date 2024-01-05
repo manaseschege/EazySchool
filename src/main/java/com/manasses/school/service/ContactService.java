@@ -13,23 +13,15 @@ Logger static property in the class at compilation time.
 * */
 @Slf4j
 @Service
-@ApplicationScope
+
 public class ContactService {
-private int counter=0;
+
 public ContactService(){
     System.out.println("Contact Service Bean initialized");
 }
 
-    public int getCounter() {
-        return counter;
-    }
 
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }
-
-    /**
-     * Save Contact Details into DB
+    /* Save Contact Details into DB
      * @param contact
      * @return boolean
      */
