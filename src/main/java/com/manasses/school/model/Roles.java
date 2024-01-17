@@ -1,2 +1,19 @@
-package com.manasses.school.model;public class Roles {
+package com.manasses.school.model;
+
+import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+
+import jakarta.persistence.*;
+
+@Data
+@Entity
+public class Roles extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
+    private int roleId;
+
+    private String roleName;
+
 }
